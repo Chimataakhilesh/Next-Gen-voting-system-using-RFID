@@ -1,4 +1,5 @@
 # Next‑Gen Voting System using RFID (LPC2129 + EM-18)
+<img width="304" height="157" alt="image" src="https://github.com/user-attachments/assets/a810333f-fdd9-4a96-b4c0-a446e4c2291b" />
 
 A simple embedded voting system that authenticates voters using an EM-18 RFID reader and an ARM7 LPC2129 microcontroller. Voting status is displayed on a 16×2 LCD. The system prevents duplicate voting and lets an admin view results.
 
@@ -46,14 +47,26 @@ Notes:
 
 ## How the system works (brief)
 1. System starts in VERIFY_MODE and prompts "SCAN FOR VERIFY".
-2. User scans an RFID tag (EM-18 sends ASCII tag over UART).
-3. The code compares the tag against the `Voter_ID[]` array:
+3. User scans an RFID tag (EM-18 sends ASCII tag over UART).
+4. The code compares the tag against the `Voter_ID[]` array:
    - If match and not voted -> transitions to VOTE_MODE.
+   - <img width="306" height="155" alt="verified" src="https://github.com/user-attachments/assets/e9076c61-e7e3-4d9b-b2ff-d0a999408b78" />
+
    - If match and already voted -> displays "ALREADY VOTED".
+   - <img width="302" height="157" alt="already_voted" src="https://github.com/user-attachments/assets/61ec6274-8c3a-4452-b494-e1cc18c7563d" />
+
    - If no match -> displays "INVALID ID".
-4. In VOTE_MODE the LCD shows party options. User presses the corresponding button (EINT1/EINT2/EINT3) to select a party, then must re-scan the same tag to confirm the vote.
-5. On confirmation, vote is recorded (DMK/ADMK/TVK counters increment) and voter's entry in `voted[]` is set to block repeats.
-6. Pressing the RESULTS button (EINT0) displays winner or "DRAW".
+   - <img width="461" height="232" alt="Capture" src="https://github.com/user-attachments/assets/b7427e1f-bd7e-4268-a4cd-1166456ea483" />
+
+5. In VOTE_MODE the LCD shows party options. User presses the corresponding button (EINT1/EINT2/EINT3) to select a party, then must re-scan the same tag to confirm the vote.
+   <img width="306" height="154" alt="party_list" src="https://github.com/user-attachments/assets/b6438b51-9918-4f9d-9143-d24ad1b93ccb" />
+
+7. On confirmation, vote is recorded (DMK/ADMK/TVK counters increment) and voter's entry in `voted[]` is set to block repeats.
+   <img width="303" height="157" alt="vote_success" src="https://github.com/user-attachments/assets/6f908bf4-5b19-4703-a001-01b8ccd5694b" />
+
+9. Pressing the RESULTS button (EINT0) displays winner or "DRAW".
+    <img width="304" height="157" alt="results" src="https://github.com/user-attachments/assets/91f1d628-6441-45f9-86a0-680d91dd7e83" />
+
 
 ---
 
@@ -117,3 +130,7 @@ int voted[5] = {0,0,0,0,0};
 ## Credits
 - Project by Chimataakhilesh
 - Uses EM-18 RFID module and LPC2129 microcontroller
+
+##schematic capture
+<img width="1224" height="865" alt="schematic_view" src="https://github.com/user-attachments/assets/6b2560e0-8bfe-4f3b-95ec-4497293c8075" />
+
