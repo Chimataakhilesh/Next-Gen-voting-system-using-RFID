@@ -1,5 +1,6 @@
 # Next‑Gen Voting System using RFID (LPC2129 + EM-18)
-<img width="304" height="157" alt="image" src="https://github.com/user-attachments/assets/a810333f-fdd9-4a96-b4c0-a446e4c2291b" />
+<img width="249" height="119" alt="title" src="https://github.com/user-attachments/assets/3617dd08-264a-4d6c-975a-097856e21d9d" />
+
 
 A simple embedded voting system that authenticates voters using an EM-18 RFID reader and an ARM7 LPC2129 microcontroller. Voting status is displayed on a 16×2 LCD. The system prevents duplicate voting and lets an admin view results.
 
